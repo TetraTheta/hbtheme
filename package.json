@@ -2,6 +2,10 @@
   "name": "@tetratheta/hbtheme",
   "private": true,
   "type": "module",
+  "scripts": {
+    "update": "pnpm dlx npm-check-updates --cooldown 7d",
+    "upgrade": "pnpm dlx npm-check-updates --cooldown 7d -u && pnpm install"
+  },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^7.3.1",
     "@fullhuman/postcss-purgecss": "^8.0.0",
@@ -12,7 +16,7 @@
     "bootstrap-icons": "^1.13.1",
     "fuse.js": "^7.5.0",
     "highlight.js": "^11.12.0",
-    "lucide-static": "^1.31.0",
+    "lucide-static": "^1.33.0",
     "postcss-cli": "^11.0.1",
     "rtlcss": "^4.3.0",
     "simple-icons": "^16.28.0"
@@ -20,9 +24,13 @@
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@types/node": "^26.2.0",
-    "eslint": "^10.8.1",
+    "eslint": "^10.9.0",
     "eslint-config-prettier": "^10.1.8",
     "prettier": "^3.9.6",
     "typescript-eslint": "^8.67.0"
+  },
+  "packageManager": "pnpm@11.22.0",
+  "engines": {
+    "npm": "Use pnpm instead of npm."
   }
 }
