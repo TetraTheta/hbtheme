@@ -1,0 +1,14 @@
+{{- with .GetTerms "authors" }}
+  {{- range . }}
+    {{- $plainTitle := partial "hb/functions/render-title" (dict "Page" .Page "Title" .Title "Plain" true) }}
+    <a
+      class="hb-blog-post-author-link text-decoration-none"
+      href="{{ .RelPermalink }}"
+      title="{{ $plainTitle }}">
+      {{ partial "hb/modules/blog/author/image" (dict
+        "Page" .
+        "ClassName" "hb-blog-author-img rounded-circle")
+      }}
+    </a>
+  {{- end }}
+{{- end }}

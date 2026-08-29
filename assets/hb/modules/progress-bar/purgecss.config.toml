@@ -1,0 +1,12 @@
+classes = [
+  "d-none",
+  "hb-progress-bar",
+  "position-fixed",
+  "progress",
+  "progress-bar",
+  "progress-bar-animated",
+  "progress-bar-stripe",
+  "rounded-0",
+  "top-0",
+  "w-100",
+]

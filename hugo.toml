@@ -1,0 +1,368 @@
+[outputFormats.Search]
+baseName = "index"
+isHTML = true
+mediaType = "text/html"
+notAlternative = true
+path = "search"
+
+[outputFormats.SearchIndex]
+baseName = "search"
+isPlainText = true
+mediaType = "application/json"
+notAlternative = true
+
+[params]
+title_sections = true
+title_sections_depth = 0
+title_sections_depth_dir = "end"
+title_separator = "-"
+
+[params.bootstrap.article_cards]
+image_height = 240
+limit = 12
+
+[params.bootstrap.config_toggle]
+langs = [ "toml", "yaml", "json" ]
+
+[params.code_block_panel]
+line_nos = true
+max_lines = 10
+wrap = false
+
+[params.emgithub]
+border = true
+branch = "main"
+copy_button = true
+endpoint = "https://emgithub.com/embed-v2.js"
+file_meta = true
+full_path = true
+js_delivr = false
+line_numbers = true
+style = "default"
+type = "markdown"
+
+[params.hb]
+color = "light"
+css_bundle_name = "hb"
+js_bundle_name = "hb"
+logo = "/images/logo.png"
+sass_transpiler = "dartsass"
+
+[params.hb.announcement_bar]
+expand_stall_threshold = 1000
+interval = 5000
+
+[params.hb.back_to_top]
+animation = true
+icon_height = "2em"
+icon_name = "rocket"
+icon_width = "2em"
+position_bottom = "1rem"
+position_end = "1rem"
+
+[params.hb.blockquotes]
+border_style = "primary"
+border_width = 4
+bordered = true
+
+[params.hb.blog]
+full_width = false
+list_cols_lg = 3
+list_cols_md = 2
+list_pinned_posts = 1
+list_style = ""
+paginate = 12
+post_date_format = ":date_long"
+post_thumbnail = true
+post_thumbnail_default = "images/thumbnail.png"
+post_thumbnail_height = "160px"
+post_thumbnail_placeholder = ""
+post_thumbnail_position = "top"
+post_thumbnail_resize_height = 360
+
+[params.hb.blog.archives]
+paginate = 30
+
+[params.hb.blog.home]
+pinned_posts_position = ""
+
+[params.hb.blog.related_posts]
+number = 10
+
+[params.hb.blog.sidebar]
+max_width = "320px"
+position = "start"
+sticky = true
+width = 0.35
+
+[params.hb.blog.social_share_buttons]
+media = []
+
+[params.hb.blog.toc]
+position = "end"
+
+[params.hb.breadcrumb]
+disabled = false
+
+[params.hb.content_panel]
+bottom = "20px"
+comments = true
+
+[params.hb.docs]
+date_format = ":date_long"
+navs_active_style = ""
+navs_reduce_font_size = false
+navs_sticky_scroll = true
+
+[params.hb.docs.social_share_buttons]
+media = []
+
+[params.hb.full_width_types.docs]
+enable = true
+
+[params.hb.header]
+breakpoint = "lg"
+full_width = true
+sticky = true
+
+[params.hb.heading_sign]
+symbol = "§"
+
+[params.hb.heading_sign.containers.".hb-blog-post-content"]
+[params.hb.heading_sign.containers.".hb-docs-doc-content"]
+[[params.hb.modules.code-block-panel.js_resources]]
+partial = "code-block-panel/assets/js-resource"
+
+[params.hb.pagination]
+alignment = "center"
+siblings = 2
+size = ""
+
+[params.hb.progress_bar]
+height = "2px"
+initial_width = 20
+interval = 50
+time = 2
+
+[params.hb.search]
+modal = true
+
+[params.hb.sections]
+hide_blog = false
+hide_docs = false
+
+[params.hb.styles]
+hb_top_offset = "24px"
+prefix = "hb-"
+
+[params.hb.tables]
+align = ""
+border_style = ""
+bordered = true
+group_divider = false
+hover = true
+striped = true
+striped_columns = false
+style = ""
+thead_style = ""
+
+[params.hb.terms]
+list_style = ""
+paginate = 12
+profile = true
+profile_metrics = true
+
+[params.hb.toc_scrollspy]
+border = true
+
+[params.hugomods.images]
+alignment_center_class_name = "d-block text-center"
+alignment_end_class_name = "float-end ms-2"
+alignment_start_class_name = "float-start me-2"
+class_name = "img-fluid"
+figure_caption_class_name = "figure-caption"
+figure_class_name = "figure"
+figure_image_class_name = "figure-img"
+modern_format = "webp"
+
+[params.hugopress]
+debug = false
+
+[params.hugopress.modules.hb.attributes.body]
+[params.hugopress.modules.hb.attributes.document]
+cacheable = true
+
+[params.hugopress.modules.hb.attributes.hb-alias-refresh-meta]
+[params.hugopress.modules.hb.attributes.hb-main]
+[params.hugopress.modules.hb.hooks.body-end]
+cacheable = true
+weight = 1000
+
+[params.hugopress.modules.hb.hooks.head-begin]
+cacheable = true
+
+[params.hugopress.modules.hb.hooks.head-end]
+cacheable = true
+
+[params.hugopress.modules.hb-announcement-bar.hooks.hb-header-nav-before]
+cacheable = true
+weight = 1
+
+[params.hugopress.modules.hb-base.hooks.hb-body-begin]
+cacheable = false
+partial = "hb/modules/header/index"
+
+[params.hugopress.modules.hb-base.hooks.hb-body-end]
+cacheable = true
+partial = "hb/modules/footer/index"
+weight = 1
+
+[params.hugopress.modules.hb-blog.hooks.head-begin]
+cache_param_key = "external_url"
+cacheable = true
+
+[params.hugopress.modules.hb-blog-breadcrumb.hooks.hb-blog-main-begin]
+weight = 1
+
+[params.hugopress.modules.hb-blog-comments-disqus.hooks.hb-blog-post-comments]
+[params.hugopress.modules.hb-blog-post-content-panel.hooks.hb-blog-post-content-end]
+[params.hugopress.modules.hb-blog-post-nav.hooks.hb-blog-post-content-end]
+[params.hugopress.modules.hb-blog-related-posts.hooks.hb-blog-post-content-end]
+[params.hugopress.modules.hb-blog-social-share-buttons.hooks.hb-blog-post-content-end]
+weight = 1
+
+[params.hugopress.modules.hb-blog-toc-scrollspy.attributes.hb-blog-post-content]
+cacheable = true
+
+[params.hugopress.modules.hb-docs.hooks.hb-header-nav-begin]
+cache_key = "page.Type"
+cacheable = true
+
+[params.hugopress.modules.hb-docs.hooks.head-begin]
+cache_param_key = "redirect"
+cacheable = true
+
+[params.hugopress.modules.hb-docs-breadcrumb.hooks.hb-docs-main-begin]
+weight = 1
+
+[params.hugopress.modules.hb-docs-comments-disqus.hooks.hb-docs-doc-comments]
+[params.hugopress.modules.hb-docs-doc-content-panel.hooks.hb-docs-doc-content-end]
+[params.hugopress.modules.hb-docs-doc-nav.hooks.hb-docs-doc-content-end]
+[params.hugopress.modules.hb-docs-social-share-buttons.hooks.hb-docs-doc-content-end]
+weight = 1
+
+[params.hugopress.modules.hb-docs-toc-scrollspy.attributes.hb-docs-doc-content]
+cacheable = true
+
+[params.hugopress.modules.hb-footer-socials.hooks.hb-footer-site-info-end]
+cacheable = true
+weight = 1
+
+[params.hugopress.modules.hb-header-search.hooks.hb-header-togglers-begin]
+cacheable = true
+partial = "hb/modules/header-search/index"
+
+[params.hugopress.modules.hb-header-socials.hooks.hb-header-panel]
+cacheable = true
+weight = 1
+
+[params.hugopress.modules.hb-noscript.hooks.body-begin]
+cacheable = true
+weight = 1
+
+[params.hugopress.modules.hb-search.hooks.body-end]
+cache_site_param_key = "hb.search.modal"
+cacheable = true
+
+[params.hugopress.modules.hb-search.hooks.head-end]
+cacheable = true
+
+[params.hugopress.modules.search.hooks.body-end]
+disabled = true
+
+[params.hugopress.modules.search.hooks.head-end]
+disabled = true
+
+[params.hugopress.modules.seo-alternatives.hooks.head-begin]
+partial = "seo/modules/alternatives/index"
+
+[params.hugopress.modules.seo-base.attributes.document]
+cacheable = true
+
+[params.hugopress.modules.seo-base.hooks.head-begin]
+partial = "seo/modules/base/index"
+
+[params.hugopress.modules.seo-favicons.hooks.head-begin]
+cacheable = true
+partial = "seo/modules/favicons/index"
+
+[params.hugopress.modules.seo-open-graph.hooks.head-begin]
+partial = "seo/modules/open-graph/index"
+
+[params.hugopress.modules.seo-schema.attributes.document]
+cacheable = true
+
+[params.hugopress.modules.seo-schema.hooks.head-begin]
+partial = "seo/modules/schema/index"
+
+[params.hugopress.modules.seo-twitter-cards.hooks.head-begin]
+partial = "seo/modules/twitter-cards/index"
+
+[params.search]
+case_sensitive = false
+distance = 100
+expand_results_meta = false
+filter_taxonomies = true
+filter_years = true
+headings_end_level = 6
+histories = true
+histories_count = 5
+ignore_location = false
+index_all_pages = false
+index_content = false
+index_headings = true
+index_summary = true
+index_taxonomies = true
+lazy_loading = true
+location = 0
+min_match_char_length = 1
+modal_container = "body"
+modal_toggle_selector = ".search-modal-toggle"
+paginate = 20
+sass_transpiler = "dartsass"
+shortcut_close = [ "Escape" ]
+shortcut_search = [ "Control", "k" ]
+stall_threshold = 300
+threshold = 0.6
+
+[params.search.key_weights]
+content = 0.5
+headings = 0.5
+lang = 1
+summary = 1
+taxonomies = 0.1
+title = 1
+year = 1
+
+[params.icons]
+throw_on_error = true
+
+[params.icons.vendors.bs]
+name = "bootstrap"
+
+[params.icons.vendors.fab]
+name = "font-awesome-brands"
+
+[params.icons.vendors.far]
+name = "font-awesome-regular"
+
+[params.icons.vendors.fas]
+name = "font-awesome-solid"
+
+[params.icons.vendors.simple]
+name = "simple-icons"
+
+[params.seo.favicons]
+icon = "favicon.png"
+mask_icon = "mask-icon.svg"
+mask_icon_color = "#000000"

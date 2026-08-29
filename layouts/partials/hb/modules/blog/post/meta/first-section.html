@@ -1,0 +1,11 @@
+{{- with .FirstSection }}
+  {{- if not (partial "hb/functions/should-hide-section" .) }}
+    <span class="hb-blog-post-section">
+      <a
+        class="badge bg-secondary text-decoration-none fw-normal"
+        href="{{ .RelPermalink }}">
+        {{ partial "hb/functions/render-title" (dict "Page" . "Title" .Title) }}
+      </a>
+    </span>
+  {{- end }}
+{{- end }}

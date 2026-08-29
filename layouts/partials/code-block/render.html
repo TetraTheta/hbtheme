@@ -1,0 +1,61 @@
+{{- $type := default "" .Type -}}
+{{- $inner := default "" .Inner -}}
+{{- $options := default dict .Options -}}
+{{- $attributes := default dict .Attributes -}}
+{{- $wrapperAttrs := dict "class" "highlight" -}}
+{{- with index $attributes "class" -}}
+  {{- $wrapperAttrs = merge $wrapperAttrs (dict "class" (printf "highlight %v" .)) -}}
+{{- end -}}
+{{- $reservedAttrs := slice "class" "linenos" "data-line-nos" "lineNos" "wrap" "data-wrap" "maxlines" "maxLines" "data-max-lines" "expand" "data-expand" "linenostart" "data-line-no-start" "lineNoStart" "title" "style" -}}
+{{- range $name, $value := $attributes -}}
+  {{- if not (in $reservedAttrs $name) -}}
+    {{- $wrapperAttrs = merge $wrapperAttrs (dict $name $value) -}}
+  {{- end -}}
+{{- end -}}
+{{- $lineNos := "" -}}
+{{- range $name := slice "linenos" "data-line-nos" "lineNos" -}}
+  {{- if and (eq $lineNos "") (isset $options $name) -}}{{- $lineNos = printf "%v" (index $options $name) -}}{{- end -}}
+  {{- if and (eq $lineNos "") (isset $attributes $name) -}}{{- $lineNos = printf "%v" (index $attributes $name) -}}{{- end -}}
+{{- end -}}
+{{- with $lineNos -}}{{- $wrapperAttrs = merge $wrapperAttrs (dict "data-line-nos" .) -}}{{- end -}}
+{{- $wrap := "" -}}
+{{- range $name := slice "wrap" "data-wrap" -}}
+  {{- if and (eq $wrap "") (isset $options $name) -}}{{- $wrap = printf "%v" (index $options $name) -}}{{- end -}}
+  {{- if and (eq $wrap "") (isset $attributes $name) -}}{{- $wrap = printf "%v" (index $attributes $name) -}}{{- end -}}
+{{- end -}}
+{{- with $wrap -}}{{- $wrapperAttrs = merge $wrapperAttrs (dict "data-wrap" .) -}}{{- end -}}
+{{- $maxLines := "" -}}
+{{- range $name := slice "maxlines" "maxLines" "data-max-lines" -}}
+  {{- if and (eq $maxLines "") (isset $options $name) -}}{{- $maxLines = printf "%v" (index $options $name) -}}{{- end -}}
+  {{- if and (eq $maxLines "") (isset $attributes $name) -}}{{- $maxLines = printf "%v" (index $attributes $name) -}}{{- end -}}
+{{- end -}}
+{{- with $maxLines -}}{{- $wrapperAttrs = merge $wrapperAttrs (dict "data-max-lines" .) -}}{{- end -}}
+{{- $expand := "" -}}
+{{- range $name := slice "expand" "data-expand" -}}
+  {{- if and (eq $expand "") (isset $options $name) -}}{{- $expand = printf "%v" (index $options $name) -}}{{- end -}}
+  {{- if and (eq $expand "") (isset $attributes $name) -}}{{- $expand = printf "%v" (index $attributes $name) -}}{{- end -}}
+{{- end -}}
+{{- with $expand -}}{{- $wrapperAttrs = merge $wrapperAttrs (dict "data-expand" .) -}}{{- end -}}
+{{- $lineNoStart := "" -}}
+{{- range $name := slice "linenostart" "data-line-no-start" "lineNoStart" -}}
+  {{- if and (eq $lineNoStart "") (isset $options $name) -}}{{- $lineNoStart = printf "%v" (index $options $name) -}}{{- end -}}
+  {{- if and (eq $lineNoStart "") (isset $attributes $name) -}}{{- $lineNoStart = printf "%v" (index $attributes $name) -}}{{- end -}}
+{{- end -}}
+{{- with $lineNoStart -}}{{- $wrapperAttrs = merge $wrapperAttrs (dict "data-line-no-start" .) -}}{{- end -}}
+{{- range $name := slice "style" -}}
+  {{- $value := "" -}}
+  {{- if isset $options $name -}}{{- $value = printf "%v" (index $options $name) -}}{{- end -}}
+  {{- if and (eq $value "") (isset $attributes $name) -}}{{- $value = printf "%v" (index $attributes $name) -}}{{- end -}}
+  {{- with $value -}}{{- $wrapperAttrs = merge $wrapperAttrs (dict $name .) -}}{{- end -}}
+{{- end -}}
+{{- $title := "" -}}
+{{- range $name := slice "title" -}}
+  {{- if and (eq $title "") (isset $options $name) -}}{{- $title = printf "%v" (index $options $name) -}}{{- end -}}
+  {{- if and (eq $title "") (isset $attributes $name) -}}{{- $title = printf "%v" (index $attributes $name) -}}{{- end -}}
+{{- end -}}
+{{- with $title -}}{{- $wrapperAttrs = merge $wrapperAttrs (dict "data-title" .) -}}{{- end -}}
+{{- $codeClass := "hljs" -}}
+{{- with $type -}}{{- $codeClass = printf "language-%s hljs" . -}}{{- end -}}
+<div {{ partial "html/functions/attributes" $wrapperAttrs | safeHTMLAttr }}>
+  <pre><code class="{{ $codeClass }}"{{ with $type }} data-lang="{{ . }}"{{ end }}>{{ $inner | htmlEscape | safeHTML }}</code></pre>
+</div>

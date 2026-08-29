@@ -1,0 +1,13 @@
+{{- $page := . -}}
+{{- $hide := false -}}
+{{- with $page.FirstSection -}}
+  {{- if eq $page.RelPermalink .RelPermalink -}}
+    {{- $section := $page.Section -}}
+    {{- if and (in (slice "blog" "b") $section) (default false site.Params.hb.sections.hide_blog) -}}
+      {{- $hide = true -}}
+    {{- else if and (in (slice "docs" "d") $section) (default false site.Params.hb.sections.hide_docs) -}}
+      {{- $hide = true -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- return $hide -}}

@@ -1,0 +1,21 @@
+#TableOfContents {
+  a {
+    @if ($hb-toc-scrollspy-border) {
+      padding-left: 0.5rem;
+      margin-left: -0.5rem;
+    }
+
+    &.active {
+      color: var(--#{$prefix}primary);
+
+      @if ($hb-toc-scrollspy-border) {
+        @extend .border-start;
+        @extend .border-primary;
+
+        --#{$prefix}border-width: 0.125rem;
+
+        padding-left: calc(0.5rem - 0.125rem);
+      }
+    }
+  }
+}

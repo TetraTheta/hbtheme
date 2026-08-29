@@ -1,0 +1,55 @@
+@import 'highlight.js/styles/github-dark-dimmed';
+
+$highlight-bg: var(--hb-secondary-bg);
+$highlight-color: var(--hb-secondary-color);
+
+.highlight {
+  background-color: $highlight-bg;
+  color: $highlight-color;
+}
+
+div.highlight pre,
+.highlight .hljs {
+  background: $highlight-bg;
+  color: $highlight-color;
+}
+
+.highlight .hljs {
+  white-space: pre;
+}
+
+.highlight .hljs-subst,
+.highlight .hljs-emphasis,
+.highlight .hljs-strong {
+  color: $highlight-color;
+}
+
+.highlight pre code.hljs {
+  padding: 0;
+}
+
+.highlight .code-line {
+  display: flex;
+  min-height: 1lh;
+  min-width: 100%;
+  width: max-content;
+}
+
+.highlight .code-line-content {
+  display: block;
+  flex: 0 0 auto;
+  min-width: 0;
+}
+
+.highlight .ln {
+  color: #7f7f7f;
+  display: inline-block;
+  flex: 0 0 auto;
+  font-variant-numeric: tabular-nums;
+  inline-size: var(--code-line-no-width, 2ch);
+  margin-right: 0.5rem;
+  padding-right: 0.35rem;
+  text-align: right;
+  user-select: none;
+  white-space: pre;
+}

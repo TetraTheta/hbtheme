@@ -1,0 +1,10 @@
+<li class="breadcrumb-item">
+  {{- $title := partial "hb/functions/render-title" (dict "Page" . "Title" .LinkTitle) -}}
+  {{- $plainTitle := partial "hb/functions/render-title" (dict "Page" . "Title" .Title "Plain" true) -}}
+  <a href="{{ .RelPermalink }}" title="{{ $plainTitle }}">
+    {{- with .Params.nav_icon }}
+      {{- partial "icons/icon" (merge . (dict "color" "" "className" "me-1")) }}
+    {{- end }}
+    {{- cond .IsHome (i18n "hb_breadcrumb_home") $title -}}
+  </a>
+</li>

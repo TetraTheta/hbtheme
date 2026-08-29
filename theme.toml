@@ -1,0 +1,13 @@
+demosite = ""
+description = "선별한 hbstack 및 hugomods 모듈을 통합해 만든 전통적인 Hugo 테마."
+features = ["integrated-modules"]
+homepage = "https://github.com/hbstack"
+license = "MIT"
+licenselink = "https://github.com/hbstack/hb/blob/main/LICENSE"
+min_version = "0.159.2"
+name = "hbtheme"
+tags = ["blog", "docs", "hbstack", "hugomods"]
+
+[author]
+homepage = ""
+name = "hbtheme"
