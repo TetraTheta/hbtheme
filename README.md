@@ -3,6 +3,7 @@
 `hbtheme`는 `hbstack`과 `hugomods` 기반 모듈형 테마를 전통적인 Hugo 테마 구조로 재구성한 테마입니다.
 
 대부분의 레이아웃, SCSS, JS, 파셜, 기본 설정, 아이콘, 테마 전용 npm 의존성은 테마 내부에서 관리합니다.
+처음에는 제 블로그에 쓰려고 만들었지만, 비슷한 Hugo 사이트에서도 재사용할 수 있도록 Git submodule 기반 사용을 전제로 둡니다.
 
 처음 적용하는 사람은 이 문서부터 읽고, 어떤 모듈이 통합되었는지나 설정 이관 내역까지 확인하려면 [DEVELOPMENT.md](DEVELOPMENT.md)를 참고하면 됩니다.
 
@@ -11,6 +12,7 @@
 이 테마는 아래와 같은 환경을 전제로 합니다.
 
 - Hugo 사이트가 `theme: hbtheme`를 사용함
+- 테마가 `themes/hbtheme` 경로에 Git submodule로 설치됨
 - 사이트 루트 `assets`는 사이트별 override와 커스텀 자산만 담음
 - 테마 전용 프런트엔드 패키지는 `themes/hbtheme/package.json`에서 관리함
 
@@ -18,15 +20,26 @@
 
 ## 빠른 적용 방법
 
-1. 테마를 `themes/hbtheme`에 둡니다.
-2. `pnpm-workspace.yaml`에 `themes/hbtheme`를 포함합니다.
-3. `config/_default/hugo.yml`에 `theme: hbtheme`를 추가합니다.
-4. 루트에서 `pnpm install`을 실행합니다.
-5. 사이트 빌드는 루트에서 `pnpm run build`를 실행합니다.
+1. 테마를 Git submodule로 추가합니다.
 
-`pnpm-workspace.yaml` 예시:
+```bash
+git submodule add https://github.com/TetraTheta/hbtheme.git themes/hbtheme
+```
+
+2. 사이트 루트에서 사용하는 패키지 매니저에 맞춰 workspace에 `themes/hbtheme`를 포함합니다.
+3. `config/_default/hugo.yml`에 `theme: hbtheme`를 추가합니다.
+4. 사이트 루트에서 `pnpm install` 또는 `npm install`을 실행합니다.
+5. 사이트 빌드는 루트에서 실행합니다.
+
+> `themes/hbtheme` 경로는 현재 테마 내부의 일부 리소스 참조가 기대하는 경로입니다. submodule 경로를 바꾸면 검색/코드블럭 패널 번역 리소스가 오작동할 수 있습니다.
+
+### pnpm 예시
+
+`pnpm-workspace.yaml`:
 
 ```yaml
+nodeLinker: "hoisted"
+
 packages:
   - "."
   - "themes/hbtheme"
@@ -34,7 +47,32 @@ packages:
   # - ".script"
 ```
 
-## npm 의존성
+설치:
+
+```bash
+pnpm install
+```
+
+### npm 예시
+
+사이트 루트 `package.json`:
+
+```json
+{
+  "private": true,
+  "workspaces": [
+    "themes/hbtheme"
+  ]
+}
+```
+
+설치:
+
+```bash
+npm install
+```
+
+## 프런트엔드 의존성
 
 테마 전용 의존성은 `themes/hbtheme/package.json`에 둡니다.
 
@@ -58,12 +96,6 @@ packages:
     "simple-icons": "^16.24.1"
   }
 }
-```
-
-설치:
-
-```bash
-pnpm install
 ```
 
 루트 `package.json`은 사이트 실행 스크립트와 CLI 엔트리만 유지합니다.
