@@ -13,23 +13,23 @@
     "@popperjs/core": "^2.11.8",
     "autoprefixer": "^10.6.1",
     "bootstrap": "^5.3.8",
-    "bootstrap-icons": "^1.13.1",
+    "bootstrap-icons": "^1.13.2",
     "fuse.js": "^7.5.0",
     "highlight.js": "^11.12.0",
-    "lucide-static": "^1.47.0",
+    "lucide-static": "^1.55.0",
     "postcss-cli": "^12.0.0",
     "rtlcss": "^4.3.0",
-    "simple-icons": "^16.32.0"
+    "simple-icons": "^16.35.0"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "@types/node": "^26.6.2",
-    "eslint": "^10.11.0",
+    "@types/node": "^26.6.5",
+    "eslint": "^10.12.0",
     "eslint-config-prettier": "^10.1.8",
-    "prettier": "^3.9.8",
-    "typescript-eslint": "^8.70.1"
+    "prettier": "^3.9.10",
+    "typescript-eslint": "^8.71.2"
   },
-  "packageManager": "pnpm@12.5.1",
+  "packageManager": "pnpm@12.14.0",
   "engines": {
     "npm": "Use pnpm instead of npm."
   }
